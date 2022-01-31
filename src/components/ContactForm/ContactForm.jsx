@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 export default class ContactForm extends Component {
   state = {
     name: '',
     number: '',
   };
+  nameId = nanoid();
+  numberId = nanoid();
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -27,7 +30,7 @@ export default class ContactForm extends Component {
           Name
           <input
             onChange={this.handleChange}
-            id={this.nameInputId}
+            id={this.nameId}
             type="text"
             name="name"
             value={this.state.name}
@@ -41,7 +44,7 @@ export default class ContactForm extends Component {
           <input
             onChange={this.handleChange}
             value={this.state.number}
-            id={this.phoneInputId}
+            id={this.numberId}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
