@@ -15,7 +15,7 @@ export const ContLabel = styled.label`
 `;
 
 export const ContInput = styled.input`
-  mmargin-left: 20px;
+  margin-left: 20px;
   display: block;
 `;
 
