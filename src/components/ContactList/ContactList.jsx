@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+import { ContList, ContListItem, NameNum } from './ContactList.styled';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <ul>
+  <ContList>
     {contacts.map(({ id, name, number }) => (
-      <li key={id}>
-        {name}: {number}
+      <ContListItem key={id}>
+        <NameNum>
+          {name}: {number}
+        </NameNum>
+
         {
           <button
             type="button"
@@ -14,9 +18,9 @@ const ContactList = ({ contacts, onDeleteContact }) => (
             delete
           </button>
         }
-      </li>
+      </ContListItem>
     ))}
-  </ul>
+  </ContList>
 );
 
 ContactList.propTypes = {

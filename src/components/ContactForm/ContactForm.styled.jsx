@@ -23,4 +23,5 @@ export const Button = styled.button`
   width: 100px;
   height: 30px;
   margin-bottom: 20px;
+  place-self: center;
 `;
