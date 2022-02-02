@@ -1,30 +1,19 @@
 import PropTypes from 'prop-types';
-import { ContList, ContListItem, NameNum } from './ContactList.styled';
+import ContactListItem from '../ContactListItem/ContactListItem';
+import { ContList, ContListItem } from './ContactList.styled';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
   <ContList>
     {contacts.map(({ id, name, number }) => (
       <ContListItem key={id}>
-        <NameNum>
-          {name}: {number}
-        </NameNum>
-
-        {
-          <button
-            type="button"
-            name="delte"
-            onClick={() => onDeleteContact(id)}
-          >
-            delete
-          </button>
-        }
+        <ContactListItem name={name} number={number} />
+        <button onClick={() => onDeleteContact(id)}>Delete</button>
       </ContListItem>
     ))}
   </ContList>
 );
 
 ContactList.propTypes = {
-  onDeleteContact: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
